@@ -1,0 +1,5 @@
+files:
+  - source: /site2/docs/*.md
+    translation: /site2/docs/%two_letters_code%/%original_file_name%
+  - source: /site2/website/pages/en/
+    translation: /site2/website/pages/%two_letters_code%/%original_file_name%
