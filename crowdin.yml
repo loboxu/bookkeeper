@@ -3,3 +3,5 @@ files:
     translation: /site2/docs/%two_letters_code%/%original_file_name%
   - source: /site2/website/pages/en/*.js
     translation: /site2/website/pages/%two_letters_code%/%original_file_name%
+  - source: /site2/website/blog/*.md
+    translation: /site2/website/blog/%two_letters_code%/%original_file_name%
