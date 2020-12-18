@@ -1,15 +1,59 @@
 ---
-title: BookKeeper API
+title: Apache BookKeeper&trade; 4.13.0-SNAPSHOT
 ---
 
-BookKeeper offers a few APIs that applications can use to interact with it:
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
-* The [ledger API](../ledger-api) is a lower-level API that enables you to interact with {% pop ledgers %} directly
-* The [Ledger Advanced API](../ledger-adv-api) is an advanced extension to [Ledger API](../ledger-api) to provide more flexibilities to applications.
-* The [DistributedLog API](../distributedlog-api) is a higher-level API that provides convenient abstractions.
+  http://www.apache.org/licenses/LICENSE-2.0
 
-## Trade-offs
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
 
-The `Ledger API` provides direct access to ledgers and thus enables you to use BookKeeper however you'd like.
+This documentation is for Apache BookKeeper&trade; version {{ site.latest_version }}.
 
-However, in most of use cases, if you want a `log stream`-like abstraction, it requires you to manage things like tracking list of ledgers, managing rolling ledgers and data retention on your own. In such cases, you are recommended to use [DistributedLog API](../distributedlog-api), with semantics resembling continous log streams from the standpoint of applications.
+Apache BookKeeper&trade; is a scalable, fault-tolerant, low-latency storage service optimized for real-time workloads. It offers durability, replication, and strong consistency as essentials for building reliable real-time applications.
+
+BookKeeper is suitable for a wide variety of use cases, including:
+
+| Use case                                                                       | Example                                                                                                                                                                 |
+|:------------------------------------------------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging) (write-ahead logging) | The HDFS [namenode](https://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html#BookKeeper_as_a_Shared_storage_EXPERIMENTAL) |
+| [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging) (write-ahead logging) | Twitter [Manhattan](https://blog.twitter.com/engineering/en_us/a/2016/strong-consistency-in-manhattan.html)                                                             |
+| [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging) (write-ahead logging) | [HerdDB](https://github.com/diennea/herddb)                                                                                                                             |
+| Message storage                                                                | [Apache Pulsar](http://pulsar.incubator.apache.org/docs/latest/getting-started/ConceptsAndArchitecture/#persistent-storage)                                             |
+| Offset/cursor storage                                                          | [Apache Pulsar](http://pulsar.incubator.apache.org/docs/latest/getting-started/ConceptsAndArchitecture/#persistent-storage)                                             |
+| Object/[BLOB](https://en.wikipedia.org/wiki/Binary_large_object) storage       | Storing snapshots to replicated state machines                                                                                                                          |
+
+Learn more about Apache BookKeeper&trade; and what it can do for your organization:
+
+- [Apache BookKeeper {{ site.latest_version }} Release Notes](../releaseNotes)
+- [Java API docs](../../api/javadoc)
+
+Or start [using](../../getting-started/installation) Apache BookKeeper today.
+
+### Users
+
+- **Concepts**: Start with [concepts](../../getting-started/concepts). This will help you to fully understand the other parts of the documentation, including the setup, integration and operation guides.
+- **Getting Started**: Install [Apache BookKeeper](../../getting-started/installation) and run bookies [locally](../../getting-started/run-locally)
+- **API**: Read the [API](../../api/overview) documentation to learn how to use Apache BookKeeper to build your applications.
+- **Deployment**: The [Deployment Guide](../../deployment/manual) shows how to deploy Apache BookKeeper to production clusters.
+
+### Administrators
+
+- **Operations**: The [Admin Guide](../../admin/bookies) shows how to run Apache BookKeeper on production, what are the production considerations and best practices.
+
+### Contributors
+
+- **Details**: Learn [design details](../../development/protocol) to know more internals.
