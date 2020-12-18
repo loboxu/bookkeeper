@@ -1,59 +1,20 @@
 ---
-title: Apache BookKeeper&trade; 4.13.0-SNAPSHOT
+title: BookKeeper Security
+next: ../tls
 ---
 
-<!--
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
+In the 4.5.0 release, the BookKeeper community added a number of features that can be used, together or separately, to secure a BookKeeper cluster. The following security measures are currently supported:
 
-  http://www.apache.org/licenses/LICENSE-2.0
+1. Authentication of connections to bookies from clients, using either [TLS](../tls) or [SASL (Kerberos)](../sasl).
+2. Authentication of connections from clients, bookies, autorecovery daemons to [ZooKeeper](../zookeeper), when using zookeeper based ledger managers.
+3. Encryption of data transferred between bookies and clients, between bookies and autorecovery daemons using [TLS](../tls).
 
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
+It’s worth noting that security is optional - non-secured clusters are supported, as well as a mix of authenticated, unauthenticated, encrypted and non-encrypted clients.
 
-This documentation is for Apache BookKeeper&trade; version {{ site.latest_version }}.
+NOTE: authorization is not yet available in 4.5.0. The Apache BookKeeper community is looking to add this feature in subsequent releases.
 
-Apache BookKeeper&trade; is a scalable, fault-tolerant, low-latency storage service optimized for real-time workloads. It offers durability, replication, and strong consistency as essentials for building reliable real-time applications.
+## Next Steps
 
-BookKeeper is suitable for a wide variety of use cases, including:
-
-| Use case                                                                       | Example                                                                                                                                                                 |
-|:------------------------------------------------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging) (write-ahead logging) | The HDFS [namenode](https://hadoop.apache.org/docs/r2.5.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithNFS.html#BookKeeper_as_a_Shared_storage_EXPERIMENTAL) |
-| [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging) (write-ahead logging) | Twitter [Manhattan](https://blog.twitter.com/engineering/en_us/a/2016/strong-consistency-in-manhattan.html)                                                             |
-| [WAL](https://en.wikipedia.org/wiki/Write-ahead_logging) (write-ahead logging) | [HerdDB](https://github.com/diennea/herddb)                                                                                                                             |
-| Message storage                                                                | [Apache Pulsar](http://pulsar.incubator.apache.org/docs/latest/getting-started/ConceptsAndArchitecture/#persistent-storage)                                             |
-| Offset/cursor storage                                                          | [Apache Pulsar](http://pulsar.incubator.apache.org/docs/latest/getting-started/ConceptsAndArchitecture/#persistent-storage)                                             |
-| Object/[BLOB](https://en.wikipedia.org/wiki/Binary_large_object) storage       | Storing snapshots to replicated state machines                                                                                                                          |
-
-Learn more about Apache BookKeeper&trade; and what it can do for your organization:
-
-- [Apache BookKeeper {{ site.latest_version }} Release Notes](../releaseNotes)
-- [Java API docs](../../api/javadoc)
-
-Or start [using](../../getting-started/installation) Apache BookKeeper today.
-
-### Users
-
-- **Concepts**: Start with [concepts](../../getting-started/concepts). This will help you to fully understand the other parts of the documentation, including the setup, integration and operation guides.
-- **Getting Started**: Install [Apache BookKeeper](../../getting-started/installation) and run bookies [locally](../../getting-started/run-locally)
-- **API**: Read the [API](../../api/overview) documentation to learn how to use Apache BookKeeper to build your applications.
-- **Deployment**: The [Deployment Guide](../../deployment/manual) shows how to deploy Apache BookKeeper to production clusters.
-
-### Administrators
-
-- **Operations**: The [Admin Guide](../../admin/bookies) shows how to run Apache BookKeeper on production, what are the production considerations and best practices.
-
-### Contributors
-
-- **Details**: Learn [design details](../../development/protocol) to know more internals.
+- [Encryption and Authentication using TLS](../tls)
+- [Authentication using SASL](../sasl)
+- [ZooKeeper Authentication](../zookeeper)
