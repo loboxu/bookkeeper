@@ -64,6 +64,12 @@ Client Guide | API docs
 
 ## News
 
+### [date] Release 4.12.0 available
+
+This is the 23th release of Apache BookKeeper !
+
+See [BookKeeper 4.12.0 Release Notes](../docs/4.12.0/overview/releaseNotes) for details.
+
 ### 20 October, 2020 Release 4.11.1 available
 
 This is the 22th release of Apache BookKeeper !
