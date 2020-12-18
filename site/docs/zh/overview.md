@@ -1,20 +1,15 @@
 ---
-title: BookKeeper Security
-next: ../tls
+title: BookKeeper API
 ---
 
-In the 4.5.0 release, the BookKeeper community added a number of features that can be used, together or separately, to secure a BookKeeper cluster. The following security measures are currently supported:
+BookKeeper offers a few APIs that applications can use to interact with it:
 
-1. Authentication of connections to bookies from clients, using either [TLS](../tls) or [SASL (Kerberos)](../sasl).
-2. Authentication of connections from clients, bookies, autorecovery daemons to [ZooKeeper](../zookeeper), when using zookeeper based ledger managers.
-3. Encryption of data transferred between bookies and clients, between bookies and autorecovery daemons using [TLS](../tls).
+* The [ledger API](../ledger-api) is a lower-level API that enables you to interact with {% pop ledgers %} directly
+* The [Ledger Advanced API](../ledger-adv-api) is an advanced extension to [Ledger API](../ledger-api) to provide more flexibilities to applications.
+* The [DistributedLog API](../distributedlog-api) is a higher-level API that provides convenient abstractions.
 
-It’s worth noting that security is optional - non-secured clusters are supported, as well as a mix of authenticated, unauthenticated, encrypted and non-encrypted clients.
+## Trade-offs
 
-NOTE: authorization is not yet available in 4.5.0. The Apache BookKeeper community is looking to add this feature in subsequent releases.
+The `Ledger API` provides direct access to ledgers and thus enables you to use BookKeeper however you'd like.
 
-## Next Steps
-
-- [Encryption and Authentication using TLS](../tls)
-- [Authentication using SASL](../sasl)
-- [ZooKeeper Authentication](../zookeeper)
+However, in most of use cases, if you want a `log stream`-like abstraction, it requires you to manage things like tracking list of ledgers, managing rolling ledgers and data retention on your own. In such cases, you are recommended to use [DistributedLog API](../distributedlog-api), with semantics resembling continous log streams from the standpoint of applications.
